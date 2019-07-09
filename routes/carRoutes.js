@@ -11,10 +11,13 @@ router
   .get(carController.getAllCars)
   .post(carController.checkBody, carController.createCar);
 
+<<<<<<< HEAD
 router
   .route('/:id')
   .get(carController.getCar)
   .patch(carController.updateCar)
   .delete(carController.deleteCar);
 
+=======
+>>>>>>> master
 module.exports = router;
