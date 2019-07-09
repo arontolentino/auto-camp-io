@@ -84,3 +84,20 @@ exports.createCar = (req, res) => {
     }
   );
 };
+
+exports.updateCar = (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    data: {
+      car: '<Updated car here...>'
+    }
+  });
+};
+
+exports.deleteCar = (req, res) => {
+  res.status(204).json({
+    status: 'success',
+    // null means data no longer exist
+    data: null
+  });
+};

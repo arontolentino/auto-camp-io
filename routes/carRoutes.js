@@ -11,4 +11,10 @@ router
   .get(carController.getAllCars)
   .post(carController.checkBody, carController.createCar);
 
+router
+  .route('/:id')
+  .get(carController.getCar)
+  .patch(carController.updateCar)
+  .delete(carController.deleteCar);
+
 module.exports = router;
