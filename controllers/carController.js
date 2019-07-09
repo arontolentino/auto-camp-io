@@ -84,7 +84,6 @@ exports.createCar = (req, res) => {
     }
   );
 };
-<<<<<<< HEAD
 
 exports.updateCar = (req, res) => {
   res.status(200).json({
@@ -102,5 +101,3 @@ exports.deleteCar = (req, res) => {
     data: null
   });
 };
-=======
->>>>>>> master
