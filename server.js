@@ -22,25 +22,6 @@ mongoose
     console.log('DB connection successful');
   });
 
-// Creating mongoose schema
-const carSchema = new mongoose.Schema({
-  make: {
-    type: String,
-    required: [true, 'A car must have a make']
-  },
-  model: {
-    type: String,
-    required: [true, 'A car must have a model'],
-    default: 'Unknown'
-  },
-  year: {
-    type: Number,
-    required: [true, 'A car must have a year manufactured']
-  }
-});
-
-const Car = mongoose.model('Car', carSchema);
-
 const port = process.env.port || 3000;
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
