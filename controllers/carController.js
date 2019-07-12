@@ -79,10 +79,19 @@ exports.updateCar = async (req, res) => {
   }
 };
 
-exports.deleteCar = (req, res) => {
-  res.status(204).json({
-    status: 'success',
-    // null means data no longer exist
-    data: null
-  });
+exports.deleteCar = async (req, res) => {
+  try {
+    await Car.findByIdAndDelete(req.params.id);
+
+    res.status(204).json({
+      status: 'success',
+      // null means data no longer exist
+      data: null
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
 };
