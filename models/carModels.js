@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const carSchema = new mongoose.Schema({
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  },
   make: {
     type: String,
     required: [true, 'A car must have a make']
@@ -13,6 +17,48 @@ const carSchema = new mongoose.Schema({
   year: {
     type: Number,
     required: [true, 'A car must have a year manufactured']
+  },
+  horsepower: {
+    type: Number,
+    required: [true, 'A car must have a horsepower rating']
+  },
+  torque: {
+    type: Number:
+    required: [true, 'A car must have a torque rating']
+  },
+  category: {
+    type: String,
+    required: [true, 'A car must have a category']
+  },
+  location: {
+    type: String,
+    required: [true, 'A car must have a location']
+  },
+  summary: {
+    type: String,
+    trim: true,
+    required: [true, 'A car must have a description']
+  },
+  likesQuantity: {
+    type: Number,
+    default: 0
+  },
+  views: {
+    type: Number,
+    default: 0
+  },
+  description: {
+    type: String,
+    trim: true
+  },
+  imageCover: {
+    type: String,
+    required: [true, 'A car must have a cover image']
+  },
+  images: [String],
+  featured: {
+    type: Boolean,
+    default: false
   }
 });
 
