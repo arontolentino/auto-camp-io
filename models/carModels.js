@@ -23,16 +23,24 @@ const carSchema = new mongoose.Schema({
     required: [true, 'A car must have a horsepower rating']
   },
   torque: {
-    type: Number:
+    type: Number,
     required: [true, 'A car must have a torque rating']
   },
   category: {
     type: String,
     required: [true, 'A car must have a category']
   },
-  location: {
+  city: {
     type: String,
-    required: [true, 'A car must have a location']
+    required: [true, 'A car must have a city']
+  },
+  state: {
+    type: String,
+    required: [true, 'A car must have a state']
+  },
+  country: {
+    type: String,
+    required: [true, 'A car must have a country']
   },
   summary: {
     type: String,
