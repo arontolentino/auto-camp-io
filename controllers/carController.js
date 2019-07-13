@@ -3,7 +3,15 @@ const Car = require('./../models/carModels');
 
 exports.getAllCars = async (req, res) => {
   try {
-    const cars = await Car.find();
+    // BUILD QUERY
+    const queryObj = { ...req.query };
+    const excludedFields = ['page', 'sort', 'limit', 'fields'];
+    excludedFields.forEach(el => delete queryObj[el]);
+
+    const query = await Car.find(queryObj);
+
+    // EXECUTE QUERY
+    const cars = await query;
 
     res.status(200).json({
       status: 'success',
