@@ -4,11 +4,18 @@ const Car = require('./../models/carModels');
 exports.getAllCars = async (req, res) => {
   try {
     // BUILD QUERY
+    // 1) Filtering
     const queryObj = { ...req.query };
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
     excludedFields.forEach(el => delete queryObj[el]);
 
-    const query = await Car.find(queryObj);
+    // 2) Advanced Filtering
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
+
+    console.log(JSON.parse(queryStr));
+
+    const query = await Car.find(JSON.parse(queryStr));
 
     // EXECUTE QUERY
     const cars = await query;
