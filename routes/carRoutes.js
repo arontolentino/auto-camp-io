@@ -7,6 +7,10 @@ const router = express.Router();
 // router.param('id', carController.checkID);
 
 router
+  .route('/top-50-cars')
+  .get(carController.aliasTopCars, carController.getAllCars);
+
+router
   .route('/')
   .get(carController.getAllCars)
   .post(carController.createCar);

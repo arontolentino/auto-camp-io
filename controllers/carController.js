@@ -1,6 +1,12 @@
 //const fs = require('fs');
 const Car = require('./../models/carModels');
 
+exports.aliasTopCars = (req, res, next) => {
+  req.query.limit = '50';
+  req.query.sort = '-likesQuantity';
+  next();
+};
+
 exports.getAllCars = async (req, res) => {
   try {
     // BUILD QUERY
